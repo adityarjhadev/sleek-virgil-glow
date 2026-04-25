@@ -2,10 +2,23 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, SectionHeading } from "@/components/page-shell";
 import history from "@/assets/history.jpg";
 
+// =====================================================================
+// ARCHIVE / HISTORY PAGE  (route: "/history")
+// ---------------------------------------------------------------------
+// Long-form editorial about Virgil Abloh, Louis Vuitton, and resale.
+// Key edit points:
+//   - SEO meta block below.
+//   - Page heading + caption (SectionHeading).
+//   - Article headline (the big "From the street to the maison").
+//   - The 3 chapter blocks (Chapter 01 / 02 / 03) — edit copy in each.
+//   - The pull quote inside <blockquote>.
+//   - The 4-column timeline array (year + label).
+// =====================================================================
+
 export const Route = createFileRoute("/history")({
   head: () => ({
     meta: [
-      { title: "Archive — Virgil, Louis Vuitton & Resale Culture | G\"SELLS\"" },
+      { title: "Archive — Virgil, Louis Vuitton & Resale Culture | GSELLS" },
       {
         name: "description",
         content:
@@ -25,11 +38,13 @@ function HistoryPage() {
       <SectionHeading index="Archive / 01" title="The Quote" caption="An editorial on Virgil Abloh, Louis Vuitton, and the rise of resale." />
 
       <article className="px-4 md:px-8 py-16 max-w-5xl mx-auto">
+        {/* Editorial kicker + main headline */}
         <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Editorial No. 01</p>
         <h2 className="mt-4 text-4xl md:text-7xl uppercase leading-[0.9]">
-          From the <span className="italic font-normal">&quot;street&quot;</span> to the maison.
+          From the <span className="italic font-normal">street</span> to the maison.
         </h2>
 
+        {/* Marquee strip — change the rotating credits here */}
         <div className="my-12 border-t border-b border-ink py-2 overflow-hidden">
           <div className="animate-marquee whitespace-nowrap text-xs uppercase tracking-[0.3em]">
             {Array.from({ length: 8 }).map((_, i) => (
@@ -40,6 +55,7 @@ function HistoryPage() {
           </div>
         </div>
 
+        {/* Editorial photo — swap @/assets/history.jpg to change */}
         <figure className="my-12">
           <img
             src={history}
@@ -48,18 +64,19 @@ function HistoryPage() {
             className="w-full h-[60vh] object-cover bg-beige-deep"
           />
           <figcaption className="mt-2 text-[10px] uppercase tracking-[0.25em] text-muted-foreground flex justify-between">
-            <span>&quot;ARCHIVAL&quot;</span>
+            <span>ARCHIVAL</span>
             <span>FIG. 01</span>
           </figcaption>
         </figure>
 
+        {/* --- CHAPTER 01 --- edit body copy below --- */}
         <div className="grid md:grid-cols-12 gap-8 text-base leading-relaxed">
           <p className="md:col-span-3 text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-            &quot;Chapter 01&quot;<br />The Quotation Mark
+            Chapter 01<br />The Quotation Mark
           </p>
           <div className="md:col-span-9 space-y-6">
             <p>
-              When Virgil Abloh wrapped the word <span className="qm">SHOELACES</span>{" "}
+              When Virgil Abloh wrapped the word SHOELACES{" "}
               around a pair of sneakers, he did more than design product &mdash; he
               re-coded what luxury could mean. Off-White wasn&apos;t a brand so much
               as a thesis: that streetwear, the t-shirt, the cargo pant, the cap,
@@ -74,18 +91,20 @@ function HistoryPage() {
           </div>
         </div>
 
+        {/* --- PULL QUOTE --- replace with any quote you want highlighted --- */}
         <blockquote className="my-16 border-y border-ink py-12">
           <p className="text-3xl md:text-5xl uppercase leading-[1.05]">
-            <span className="qm">Everything I do is for the seventeen-year-old version of myself.</span>
+            <span>Everything I do is for the seventeen-year-old version of myself.</span>
           </p>
           <footer className="mt-6 text-xs uppercase tracking-[0.25em] text-muted-foreground">
             &mdash; Virgil Abloh
           </footer>
         </blockquote>
 
+        {/* --- CHAPTER 02 --- */}
         <div className="grid md:grid-cols-12 gap-8 text-base leading-relaxed">
           <p className="md:col-span-3 text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-            &quot;Chapter 02&quot;<br />Louis Vuitton Men&apos;s
+            Chapter 02<br />Louis Vuitton Men&apos;s
           </p>
           <div className="md:col-span-9 space-y-6">
             <p>
@@ -104,6 +123,7 @@ function HistoryPage() {
           </div>
         </div>
 
+        {/* --- TIMELINE STRIP --- edit year + label pairs below --- */}
         <div className="my-20 grid grid-cols-2 md:grid-cols-4 border border-ink">
           {[
             { k: "1980", v: "Born in Illinois" },
@@ -118,9 +138,10 @@ function HistoryPage() {
           ))}
         </div>
 
+        {/* --- CHAPTER 03 --- */}
         <div className="grid md:grid-cols-12 gap-8 text-base leading-relaxed">
           <p className="md:col-span-3 text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-            &quot;Chapter 03&quot;<br />Resale Culture
+            Chapter 03<br />Resale Culture
           </p>
           <div className="md:col-span-9 space-y-6">
             <p>
@@ -136,7 +157,7 @@ function HistoryPage() {
               first piece in a young collector&apos;s wardrobe.
             </p>
             <p>
-              That is why G&quot;SELLS&quot; exists. Not to flip, but to forward.
+              That is why GSELLS exists. Not to flip, but to forward.
               We treat each garment as a quotation &mdash; with care, citation,
               and respect for the hands that made it and the kid who will wear it next.
             </p>
