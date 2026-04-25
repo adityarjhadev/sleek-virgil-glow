@@ -26,20 +26,21 @@ export const Route = createFileRoute("/shipping")({
   component: ShippingPage,
 });
 
-// --- SHIPPING RATES TABLE: add / edit regions, transit times, prices ---
+// --- LOCAL DELIVERY ZONES: edit Austin neighborhoods, hand-off times, fees ---
+// We only deliver within ~25 miles of central Austin, TX. No shipping.
 const ROWS = [
-  { region: "United States", time: "2 — 4 business days", price: "$12 / Free over $250" },
-  { region: "Canada / Mexico", time: "4 — 7 business days", price: "$24" },
-  { region: "Europe", time: "5 — 8 business days", price: "$35" },
-  { region: "Asia / Pacific", time: "6 — 10 business days", price: "$45" },
-  { region: "Rest of World", time: "8 — 14 business days", price: "$55" },
+  { region: "Central Austin (78701 — 78705)", time: "Same-day hand-off", price: "Free" },
+  { region: "East / South ATX (~10 mi)", time: "Same-day or next-day", price: "Free over $75" },
+  { region: "Greater Austin (10 — 25 mi)", time: "Within 48 hours", price: "$8 flat" },
+  { region: "Outside 25 mi of ATX", time: "Not available", price: "—" },
 ];
 
 // --- FAQ ENTRIES: add / remove / reword question + answer pairs here ---
 const FAQ = [
-  { q: "Are items authentic?", a: "Every piece is hand-inspected by our resale studio. We provide a certificate of authenticity with each shipment." },
-  { q: "What is the return policy?", a: "14 days from delivery for unworn items in original condition. Buyer covers return shipping unless the item was misrepresented." },
-  { q: "Do you ship worldwide?", a: "Yes. We ship to over 90 countries. Duties and import taxes are the buyer's responsibility." },
+  { q: "Are items authentic?", a: "Every piece is hand-inspected by our resale studio. We provide a certificate of authenticity with each delivery." },
+  { q: "What is the return policy?", a: "14 days from hand-off for unworn items in original condition. We'll meet you locally to pick it back up if it was misrepresented." },
+  { q: "Do you ship?", a: "No — we are local-only right now. Delivery is hand-off within 25 miles of central Austin, TX." },
+  { q: "How do I pay?", a: "Checkout sends you straight to Venmo with your total and an itemised note. Pay before we coordinate the hand-off." },
   { q: "How do you price items?", a: "We benchmark against current resale market data and condition grade each piece on a 10-point scale." },
 ];
 
@@ -47,16 +48,19 @@ function ShippingPage() {
   const [sent, setSent] = useState(false);
   return (
     <PageShell>
-      <SectionHeading index="Info / 01" title="Shipping" caption="Worldwide. Tracked. Carbon-offset packaging." />
+      <SectionHeading index="Info / 01" title="Delivery" caption="Local-only. Within 25 miles of Austin, TX. Hand-off in person." />
 
       {/* --- SHIPPING RATES TABLE — driven by the ROWS array above --- */}
       <section className="px-4 md:px-8 py-12 border-b border-ink">
+        <p className="mb-6 text-xs uppercase tracking-[0.2em] text-muted-foreground max-w-2xl">
+          We deliver by hand within a 25-mile radius of central Austin. No shipping, no carriers — just a meet-up at a coffee shop, your doorstep, or a public spot of your choice.
+        </p>
         <table className="w-full text-sm border-collapse">
           <thead>
             <tr className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-              <th className="text-left py-3 border-b border-ink">Region</th>
-              <th className="text-left py-3 border-b border-ink">Transit</th>
-              <th className="text-right py-3 border-b border-ink">Rate</th>
+              <th className="text-left py-3 border-b border-ink">Zone</th>
+              <th className="text-left py-3 border-b border-ink">Hand-off</th>
+              <th className="text-right py-3 border-b border-ink">Fee</th>
             </tr>
           </thead>
           <tbody>
