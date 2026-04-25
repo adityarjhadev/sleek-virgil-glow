@@ -205,6 +205,6 @@
   animation: ticker-fade 2.4s ease-in-out infinite;
 }
 
-/* "QUOTE" wrapper inspired by Off-White */
-.qm::before { content: "\""; }
-.qm::after { content: "\""; }
+/* QUOTE wrapper inspired by Off-White (now a no-op — kept for backwards compatibility) */
+.qm::before { content: ""; }
+.qm::after { content: ""; }

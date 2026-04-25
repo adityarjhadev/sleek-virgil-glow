@@ -2,12 +2,19 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, ProductGrid, SectionHeading } from "@/components/page-shell";
 import pants from "@/assets/pants.jpg";
 
+// =====================================================================
+// PANTS CATALOG  (route: "/pants")
+// ---------------------------------------------------------------------
+// Edit page SEO in head(), heading in <SectionHeading />, and the
+// products in the `items` array below.
+// =====================================================================
+
 export const Route = createFileRoute("/pants")({
   head: () => ({
     meta: [
-      { title: "Pants — G\"SELLS\"" },
+      { title: "Pants — GSELLS" },
       { name: "description", content: "Cargo, denim and tailored pants from the archive." },
-      { property: "og:title", content: "Pants — G\"SELLS\"" },
+      { property: "og:title", content: "Pants — GSELLS" },
       { property: "og:description", content: "Cargo, denim, tailored. Curated resale." },
       { property: "og:image", content: pants },
     ],
@@ -16,6 +23,7 @@ export const Route = createFileRoute("/pants")({
 });
 
 function PantsPage() {
+  // --- PRODUCT LIST: edit names, prices, tag numbers, and images here ---
   const items = [
     { name: "Cargo Trouser — Sand", price: "$320", tag: "01", img: pants },
     { name: "Pleated Wide — Khaki", price: "$280", tag: "02", img: pants },

@@ -2,12 +2,22 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, ProductGrid, SectionHeading } from "@/components/page-shell";
 import shirts from "@/assets/shirts.jpg";
 
+// =====================================================================
+// SHIRTS CATALOG  (route: "/shirts")
+// ---------------------------------------------------------------------
+// - To change the page title / SEO, edit the head() block below.
+// - To change the heading / caption, edit the <SectionHeading /> props.
+// - To add / remove / reprice products, edit the `items` array.
+//   Each item: { name, price, tag, img }.
+//   Replace `img: shirts` with a different imported asset for unique photos.
+// =====================================================================
+
 export const Route = createFileRoute("/shirts")({
   head: () => ({
     meta: [
-      { title: "Shirts — G\"SELLS\"" },
+      { title: "Shirts — GSELLS" },
       { name: "description", content: "Curated archival shirts and tees, authenticated and ready to ship." },
-      { property: "og:title", content: "Shirts — G\"SELLS\"" },
+      { property: "og:title", content: "Shirts — GSELLS" },
       { property: "og:description", content: "Archival tees and shirts. Worldwide shipping." },
       { property: "og:image", content: shirts },
     ],
@@ -16,6 +26,7 @@ export const Route = createFileRoute("/shirts")({
 });
 
 function ShirtsPage() {
+  // --- PRODUCT LIST: edit names, prices, tag numbers, and images here ---
   const items = [
     { name: "Heavyweight Tee — Mocha", price: "$140", tag: "01", img: shirts },
     { name: "Box Logo Tee — Sand", price: "$220", tag: "02", img: shirts },

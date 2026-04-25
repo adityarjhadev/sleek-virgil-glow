@@ -2,12 +2,19 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, ProductGrid, SectionHeading } from "@/components/page-shell";
 import hats from "@/assets/hats.jpg";
 
+// =====================================================================
+// HATS CATALOG  (route: "/hats")
+// ---------------------------------------------------------------------
+// Edit page SEO in head(), heading in <SectionHeading />, and the
+// products in the `items` array below.
+// =====================================================================
+
 export const Route = createFileRoute("/hats")({
   head: () => ({
     meta: [
-      { title: "Hats — G\"SELLS\"" },
+      { title: "Hats — GSELLS" },
       { name: "description", content: "Caps, beanies, bucket hats. Hand picked from the archive." },
-      { property: "og:title", content: "Hats — G\"SELLS\"" },
+      { property: "og:title", content: "Hats — GSELLS" },
       { property: "og:description", content: "Headwear, curated." },
       { property: "og:image", content: hats },
     ],
@@ -16,6 +23,7 @@ export const Route = createFileRoute("/hats")({
 });
 
 function HatsPage() {
+  // --- PRODUCT LIST: edit names, prices, tag numbers, and images here ---
   const items = [
     { name: "6-Panel Cap — Black", price: "$80", tag: "01", img: hats },
     { name: "Bucket — Beige", price: "$95", tag: "02", img: hats },
