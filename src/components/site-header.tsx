@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { useCart } from "@/lib/cart";
 
 // =====================================================================
 // SITE HEADER
@@ -22,6 +23,7 @@ const NAV = [
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const { count, setOpen: setCartOpen } = useCart();
   return (
     <header className="sticky top-0 z-50 border-b border-ink bg-beige">
       <div className="flex items-center justify-between px-4 py-3 md:px-8">
@@ -48,14 +50,26 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        {/* --- MOBILE MENU TOGGLE BUTTON --- */}
-        <button
-          aria-label="Toggle menu"
-          onClick={() => setOpen((o) => !o)}
-          className="md:hidden text-xs uppercase tracking-[0.18em] border border-ink px-3 py-1.5"
-        >
-          {open ? "Close" : "Menu"}
-        </button>
+        {/* --- RIGHT-SIDE ACTIONS: cart button (always visible) + mobile menu --- */}
+        <div className="flex items-center gap-2">
+          {/* Cart / bag button — opens the slide-out drawer */}
+          <button
+            type="button"
+            aria-label={`Open bag, ${count} items`}
+            onClick={() => setCartOpen(true)}
+            className="relative text-xs uppercase tracking-[0.18em] border border-ink px-3 py-1.5 hover:bg-ink hover:text-beige transition-colors"
+          >
+            Bag ({count})
+          </button>
+          {/* Mobile menu toggle */}
+          <button
+            aria-label="Toggle menu"
+            onClick={() => setOpen((o) => !o)}
+            className="md:hidden text-xs uppercase tracking-[0.18em] border border-ink px-3 py-1.5"
+          >
+            {open ? "Close" : "Menu"}
+          </button>
+        </div>
       </div>
 
       {/* --- MOBILE NAVIGATION DROPDOWN --- */}

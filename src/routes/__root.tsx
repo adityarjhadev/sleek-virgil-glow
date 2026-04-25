@@ -1,6 +1,8 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { CartProvider } from "@/lib/cart";
+import { CartDrawer } from "@/components/cart-drawer";
 
 function NotFoundComponent() {
   return (
@@ -65,5 +67,13 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  return <Outlet />;
+  // CartProvider gives every page access to the shopping cart state.
+  // CartDrawer is the slide-out panel; rendered once at the root so it
+  // persists across route changes.
+  return (
+    <CartProvider>
+      <Outlet />
+      <CartDrawer />
+    </CartProvider>
+  );
 }

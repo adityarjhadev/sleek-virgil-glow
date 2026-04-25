@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { SiteHeader } from "./site-header";
 import { SiteFooter } from "./site-footer";
+import { useCart, parsePrice } from "@/lib/cart";
 
 // =====================================================================
 // PAGE SHELL & SHARED LAYOUT PIECES
@@ -49,9 +50,13 @@ export function SectionHeading({
 
 export function ProductGrid({
   items,
+  category = "item",
 }: {
   items: { name: string; price: string; tag: string; img: string }[];
+  // category is used to build a unique cart id (e.g. "shirts-01")
+  category?: string;
 }) {
+  const { add } = useCart();
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-b border-ink">
       {items.map((it, i) => (
@@ -75,8 +80,19 @@ export function ProductGrid({
             <h3 className="text-sm uppercase tracking-[0.12em]">{it.name}</h3>
             <span className="text-sm">{it.price}</span>
           </div>
-          {/* CTA — change the button label here */}
-          <button className="mt-3 self-start text-[11px] uppercase tracking-[0.2em] border-b border-ink pb-0.5 hover:opacity-60 transition-opacity">
+          {/* CTA — adds this product to the shopping bag (opens drawer) */}
+          <button
+            type="button"
+            onClick={() =>
+              add({
+                id: `${category}-${it.tag}`,
+                name: it.name,
+                price: parsePrice(it.price),
+                img: it.img,
+              })
+            }
+            className="mt-3 self-start text-[11px] uppercase tracking-[0.2em] border-b border-ink pb-0.5 hover:opacity-60 transition-opacity"
+          >
             Add to bag &nbsp;&rarr;
           </button>
         </article>
