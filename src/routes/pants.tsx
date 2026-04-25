@@ -35,7 +35,7 @@ function PantsPage() {
   return (
     <PageShell>
       <SectionHeading index="Catalog / 02" title="Pants" caption="From cargo to tailored. Vintage cuts and contemporary fits." />
-      <ProductGrid items={items} />
+      <ProductGrid items={items} category="pants" />
     </PageShell>
   );
 }

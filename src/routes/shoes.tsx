@@ -35,7 +35,7 @@ function ShoesPage() {
   return (
     <PageShell>
       <SectionHeading index="Catalog / 04" title="Shoes" caption="Sneakers and footwear from the archive. Each pair authenticated." />
-      <ProductGrid items={items} />
+      <ProductGrid items={items} category="shoes" />
     </PageShell>
   );
 }

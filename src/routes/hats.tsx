@@ -35,7 +35,7 @@ function HatsPage() {
   return (
     <PageShell>
       <SectionHeading index="Catalog / 03" title="Hats" caption="Headwear that finishes the fit." />
-      <ProductGrid items={items} />
+      <ProductGrid items={items} category="hats" />
     </PageShell>
   );
 }
