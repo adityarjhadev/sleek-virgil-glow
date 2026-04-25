@@ -17,10 +17,10 @@ import { useState } from "react";
 export const Route = createFileRoute("/shipping")({
   head: () => ({
     meta: [
-      { title: "Shipping & Communications — GSELLS" },
-      { name: "description", content: "Shipping, returns, authentication and customer service for G'Sells resale." },
-      { property: "og:title", content: "Shipping & Communications — GSELLS" },
-      { property: "og:description", content: "How we ship, return, authenticate. Get in touch." },
+          { title: "Delivery & Communications — GSELLS" },
+          { name: "description", content: "Local Austin TX delivery only — within 25 miles of ATX. Returns, authentication, and contact." },
+          { property: "og:title", content: "Delivery & Communications — GSELLS" },
+          { property: "og:description", content: "Local Austin delivery only. Get in touch." },
     ],
   }),
   component: ShippingPage,
