@@ -38,7 +38,7 @@ function ShirtsPage() {
   return (
     <PageShell>
       <SectionHeading index="Catalog / 01" title="Shirts" caption="Authenticated archival tees and tops, sized for the new wave." />
-      <ProductGrid items={items} />
+      <ProductGrid items={items} category="shirts" />
     </PageShell>
   );
 }
