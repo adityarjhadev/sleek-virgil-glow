@@ -21,7 +21,7 @@ export function SiteFooter() {
         <div className="animate-marquee whitespace-nowrap text-xs uppercase tracking-[0.3em]">
           {Array.from({ length: 8 }).map((_, i) => (
             <span key={i} className="mx-8">
-              GSELLS &nbsp;&mdash;&nbsp; AUTHENTIC RESALE &nbsp;&mdash;&nbsp; WORLDWIDE SHIPPING &nbsp;&mdash;&nbsp; EST. 2025 &nbsp;&mdash;&nbsp;
+              GSELLS &nbsp;&mdash;&nbsp; AUTHENTIC RESALE &nbsp;&mdash;&nbsp; AUSTIN TX LOCAL DELIVERY &nbsp;&mdash;&nbsp; EST. 2025 &nbsp;&mdash;&nbsp;
             </span>
           ))}
         </div>
@@ -43,7 +43,7 @@ export function SiteFooter() {
         <div>
           <p className="tag-label mb-3">INFO</p>
           <ul className="space-y-1 text-sm">
-            <li><Link to="/shipping" className="hover:underline">Shipping</Link></li>
+            <li><Link to="/shipping" className="hover:underline">Delivery</Link></li>
             <li><Link to="/history" className="hover:underline">Archive</Link></li>
           </ul>
         </div>
@@ -56,7 +56,7 @@ export function SiteFooter() {
         {/* Column 4: address — change studio address here */}
         <div>
           <p className="tag-label mb-3">ADDRESS</p>
-          <p className="text-sm">No. 23 Industrial Lane<br/>Brooklyn, NY 11201</p>
+          <p className="text-sm">Austin, TX<br/>Local hand-off within 25 mi</p>
         </div>
       </div>
 
